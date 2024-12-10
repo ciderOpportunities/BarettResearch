@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta name="description" content="">
+                        <meta name="author" content="">
+                            <!-- NEED REPLACE <link rel="shortcut icon" href="favicon.png"> -->
+
+                            <title>Christopher B. Barrett - Research Group: Steven Wilcox</title>
+
+                            <!-- Bootstrap core CSS -->
+                            <link href="../../css/bootstrap.css" rel="stylesheet">
+
+                                <!-- Custom styles -->
+                                <link href="../../css/barrett-style.css" rel="stylesheet">
+                                    <script type="text/javascript" src="../../js/navbar.js"></script>
+
+    </head>
+
+
+    <body style="">
+
+        <script type="text/javascript">writenav();</script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h1>Erwin Knippenberg</h1>
+                <table class="table table-hover">
+                    <tr>
+                        <td>Degree</td>
+                        <td>Ph.D, Applied Economics</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address
+                            <br>Personal Website
+                        </td>
+                        <td><a href="mailto:ek598@cornell.edu">ek598@cornell.edu</a>
+                            <br><a href="https://www.erwinknippenberg.com/" target="_blank">erwinknippenberg.com</a>
+                        </td>
+                    </tr>
+                </table>
+                <p>Steven is from the Western United States (Utah and Arizona) and couldn’t resist the
+                opportunity to migrate east for a spell to earn a PhD in applied economics at Cornell.
+                He has a BA from Utah State University (cum laude, 2002; major in American
+                Studies, minors in Geology and Spanish) and an MS in environmental policy (Bard
+                College, 2005).</p>
+                <p>As an applied economist, Steven’s research interests are in the economics of
+                development, agriculture, natural resources, and welfare. He works on projects that
+                treat each subject area individually, but also enjoys research projects that manage to
+                examine the intersection of these subject areas in novel ways. Examples of current
+                work include research on welfare and staple food prices, and the spatiotemporal
+                variability of food security and weather.</p>
+                <p>Prior to Cornell, Steven worked for over ten years in natural resource management
+                in various roles primarily in the Western U.S. This included stints as a forester in
+                the Greater Yellowstone region (with Montana State University and US Forest
+                Service), and as a habitat biologist in Utah working directly with farmers to improve
+                on-farm natural resource conservation (with both the USDA-NRCS and the Utah
+                Department of Wildlife Resources). He has also had research and work experience
+                in Costa Rica (forest conservation on the Osa Peninsula with Proyecto Campanario)
+                and Mexico (wetland and shorebird conservation with IWJV).</p>
+                <p>In his spare time Steven enjoys spending time with his family (wife Sasha, kids Axel
+                and Wren), playing music, and engaging in various forms of outdoor recreation.</p>
+
+                <br>
+                <p><a class="btn btn-default" href="../../research/group/">Return to Group »</a></p>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <h2></h2>
+                <img src="../../images/group/Knippenberg_Professional_Picture.jpg" class="img-responsive img-rounded" alt="Erwin Knippenberg">
+            </div>
+
+        </div>
+
+
+
+      <hr>
+      <script type="text/javascript">writefooter();</script>
+    </div><!--/.container-->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/offcanvas.js"></script>
+
+
+</body></html>

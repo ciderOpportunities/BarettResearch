@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- NEED REPLACE <link rel="shortcut icon" href="favicon.png"> -->
+    <title>USAID Feed the Future Global Poverty and Malnutrition Estimation Project</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="../../css/barrett-style.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/navbar.js"></script>
+</head>
+<body style="background-color:rgb(240, 240,240);">
+  <script type="text/javascript">writenav();</script>
+  <div class="container">
+    <!--<h1>Innovations in Feed the Future Monitoring and Evaluation: Harnessing Big Data and Machine Learning to Feed the Future</h1>-->
+    <h1>USAID Feed the Future Global Poverty and Malnutrition Estimation Project</h1>
+    <p>We combine the latest advances in satellite vegetation remote sensing and physical measurement with other publicly available data, processed using accessible machine learning techniques, to explore the potential to provide <em><strong>accurate, timely, and lower cost</strong></em> monitoring of key Feed the Future (FtF) outcome indicators such as asset poverty and nutritional status at the sub-national community level in low-income FtF countries.
+      The resulting indicators enable higher frequency monitoring and adaptive targeting, as well as careful impact evaluation of FtF and other interventions when combined with rigorous research design around project or program participation</p>
+
+    <br>
+
+    <div class="headers"><h2> </h2></div>
+
+    <div class = "row">
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <br>
+        <a href = "https://dec.usaid.gov/dec/home/Default.aspx" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/usaid_vertical.jpg" width=180px/>
+          <!-- https://zeroproject.org/apply-for-usaid-fund-for-programs-inclusive-of-persons-with-disabilities/ -->
+        </a>
+      </div>
+
+      <br>
+      <div class="description  col-xs-16 col-sm-8 col-md-8">
+        <p>We thank the United States Agency for International Development for financial support under cooperative agreement # 7200AA18CA00014, “Innovations in Feed the Future Monitoring and Evaluation - Harnessing Big Data and Machine Learning to Feed the Future”.
+          All data and written products are solely the authors’ responsibility and do not necessarily reflect the views of USAID or the United States Government.
+        </p>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <div class="headers"><h2>Research Team</h2></div>
+    <br>
+    <!--
+    <ul>
+      <li><a href = "http://barrett.dyson.cornell.edu/">Christopher Barrett</a>(Professor, Dyson)</li>
+      <li><a href = "https://www.cam.cornell.edu/research/grad-students/chris-browne">Chris Browne</a> (PhD candidate, Applied Math )</li>
+      <li><a href = "http://barrett.dyson.cornell.edu/research/group/medha_bulumulla.html">Medha Bulumulla</a> (Undergraduate, Statistics )</li>
+      <li><a href = "https://www.ifpri.org/profile/susana-constenla">Susana Constenla</a>(Research Analyst, IFPRI)</li>
+      <li><a href = "https://www.uah.edu/science/departments/atmospheric-science/faculty-staff/leiqiu-hu">Leiqiu Hu</a> (Assistant Professor, Atomspheric and Earth Science)</li>
+      <li><a href = "https://cals.cornell.edu/oz-kira">Oz Kira</a> (Postdoctoral Associate, SIPS)</li>
+      <li><a href = "https://www.ifpri.org/profile/yanyan-liu">Yanyan Liu</a> (Senior Research Fellow, IFPRI)</li>
+      <li><a href = "https://davidsmatteson.com/">David Matteson</a> (Associate Professor, Statistics and Data Science)</li>
+      <li><a href = "http://lindenmcbride.com/index.html">Linden McBride</a> (Assistant Professor, Economics)</li>
+      <li><a href = "https://www.yingsun.info/people">Ying Sun</a> (Assistant Professor, SIPS)</li>
+      <li><a href = "https://cals.cornell.edu/jiaming-wen">Jiaming Wen</a> (Graduate Student, SIPS)</li>
+    </ul>
+    -->
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+
+        <article class="rgroup">
+            <figure>
+                <a href="http://barrett.dyson.cornell.edu/"><img class = "rad border_img" src="../../images/group/th/barrett_small.jpg" alt="logo" width=200px/>
+                    <figcaption>Christopher Barrett</a><br>Professor</figcaption>
+                    <figcaption>Dyson School of Applied Economics and Management</figcaption>
+                    <figcaption> Cornell University</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://www.cam.cornell.edu/research/grad-students/chris-browne"><img class = "rad border_img" src="../../images/group/th/browne_chris.jpg" alt="logo" width=200px/>
+                    <figcaption>Chris Browne</a><br>PhD candidate</figcaption>
+                    <figcaption>Applied Math</figcaption>
+                    <figcaption> Cornell University</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="http://barrett.dyson.cornell.edu/research/group/medha_bulumulla.html"><img class = "rad border_img" src="../../images/group/th/medha-bulumulla-small.JPG" alt="logo" width=200px/>
+                    <figcaption>Medha Bulumulla</a><br>Undergraduate</figcaption>
+                    <figcaption>Statistics</figcaption>
+                    <figcaption>Cornell University</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://www.ifpri.org/profile/susana-constenla"><img class = "rad border_img" src="../../images/group/th/constenla_susana.jpg" alt="logo" width=200px/>
+                    <figcaption>Susana Constenla</a><br>Research Analyst</figcaption>
+                    <figcaption>International Food Policy Research Institute</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://huleiqiu.wordpress.com/people/"><img class = "rad border_img" src="../../images/group/th/leiqiu_hu_web.jpg" alt="logo" width=200px/>
+                    <figcaption>Leiqiu Hu</a><br>Assistant Professor</figcaption>
+                    <figcaption>Atomspheric and Earth Science</figcaption>
+                    <figcaption>University of Alabama-Huntsville</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://cals.cornell.edu/oz-kira"><img class = "rad border_img" src="../../images/group/th/ozkira.jpg" alt="logo" width=200px/>
+                    <figcaption>Oz Kira</a><br>Postdoctoral Associate</figcaption>
+                    <figcaption>School of Integrative Plant Science</figcaption>
+                    <figcaption>Cornell University</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://www.ifpri.org/profile/yanyan-liu"><img class = "rad border_img" src="../../images/group/th/yanyan-liu.jpg" alt="logo" width=200px/>
+                    <figcaption>Yanyan Liu</a><br>Senior Research Fellow</figcaption>
+                    <figcaption>International Food Policy Research Institute</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://davidsmatteson.com/"><img class = "rad border_img" src="../../images/group/th/davidmatteson.jpg" alt="logo" width=200px/>
+                    <figcaption>David Matteson</a><br>Associate Professor</figcaption>
+                    <figcaption>Statistics and Data Science</figcaption>
+                    <figcaption>Cornell University</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="http://lindenmcbride.com/index.html"><img class = "rad border_img" src="../../images/group/th/linden-mcbride.jpg" alt="logo" width=200px/>
+                    <figcaption>Linden McBride</a><br>Assistant Professor</figcaption>
+                    <figcaption>Economics</figcaption>
+                    <figcaption>St. Mary's College of Maryland</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://www.yingsun.info/people"><img class = "rad border_img" src="../../images/group/th/ying_sun_photo.jpg" alt="logo" width=200px/>
+                    <figcaption>Ying Sun</a><br>Assistant Professor</figcaption>
+                    <figcaption>School of Integrative Plant Science</figcaption>
+                    <figcaption>Cornell University</figcaption>
+            </figure>
+        </article>
+
+        <article class="rgroup">
+            <figure>
+                <a href="https://cals.cornell.edu/jiaming-wen"><img class = "rad border_img" src="../../images/group/th/jiaming wen.jpg" alt="logo" width=200px/>
+                    <figcaption>Jiaming Wen</a><br>Graduate Student</figcaption>
+                    <figcaption>School of Integrative Plant Science</figcaption>
+                    <figcaption>Cornell University</figcaption>
+            </figure>
+        </article>
+
+      </div>
+    </div>
+
+    <br>
+    <div class="headers"><h2>Papers</h2></div>
+    <!-- Format: Authors, Title, Journal, Year -->
+    <br>
+
+    <div class = "row">
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href = "https://www.sciencedirect.com/science/article/pii/S0034425720300134?via%3Dihub" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/remotesensingofenvironment.jpg" width=100px/>
+          <!-- https://www.sciencedirect.com/journal/remote-sensing-of-environment -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+        <a href = "https://www.sciencedirect.com/science/article/pii/S0034425720300134?via%3Dihub" target="_blank" class="presentation">
+          A framework for harmonizing multiple satellite instruments to generate a long-term global high spatial-resolution solar-induced chlorophyll fluorescence (SIF)
+        </a>
+        <br>
+        <p class="titles">Jiaming Wen, Philipp Köhler, Grégory Duveiller, Nicholas C. Parazoo, Troy S. Magney, Giles J. Hooker, L.Yu, Christine Y. Chang, Ying Sun</p>
+        <br>
+        <p class="college">Remote Sensing of Environment</p>
+        <br>
+        <p class="date">20 January 2020</p>
+        <br>
+      </div>
+
+
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href = "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018GL081109" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/geophysicalresearchletters.jpg" width=100px/>
+          <!-- https://agupubs.onlinelibrary.wiley.com/toc/19448007/2019/46/3 -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+        <a href = "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018GL081109" target="_blank" class="presentation">
+          High‐Resolution Global Contiguous SIF of OCO‐2
+        </a>
+        <br>
+        <p class="titles">L. Yu, Jiaming Wen, Christine Y. Chang, Christian Frankenberg, Ying Sun</p>
+        <br>
+        <p class="college">Geophysical Research Letters</p>
+        <br>
+        <p class="date">11 December 2018</p>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <div class = "row">
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href = "https://www.sciencedirect.com/science/article/pii/S0924271620302161?via%3Dihub" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/Photogrammetry_and_Remote_Sensing.jpg" width=100px/>
+          <!-- https://www.sciencedirect.com/science/article/pii/S0924271620302161?via%3Dihub -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+        <a href = "https://www.sciencedirect.com/science/article/pii/S0924271620302161?via%3Dihub" target="_blank" class="presentation">
+          Improved estimates of monthly land surface temperature from MODIS using a diurnal temperature cycle (DTC) model
+        </a>
+        <br>
+        <p class="titles">Leiqiu Hu, Ying Sun, Gavin Collins, Peng Fu</p>
+        <br>
+        <p class="college">ISPRS Journal of Photogrammetry and Remote Sensing</p>
+        <br>
+        <p class="date">19 August 2020</p>
+        <br>
+        <br>
+      </div>
+
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href = "https://www.sciencedirect.com/science/article/pii/S0924271620300174?via%3Dihub" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/Photogrammetry_and_Remote_Sensing.jpg" width=100px/>
+          <!-- https://www.sciencedirect.com/science/article/pii/S0924271620302161?via%3Dihub -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+        <a href = "https://www.sciencedirect.com/science/article/pii/S0924271620300174?via%3Dihub" target="_blank" class="presentation">
+        Extraction of sub-pixel C3/C4 emissions of solar-induced chlorophyll fluorescence (SIF) using artificial neural network
+        </a>
+        <br>
+        <p class="titles">Oz Kira, Ying Sun</p>
+        <br>
+        <p class="college">ISPRS Journal of Photogrammetry and Remote Sensing</p>
+        <br>
+        <p class="date">21 January 2020</p>
+        <br>
+      </div>
+    </div>
+
+
+    <br>
+    <div class = "row">
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href="http://doi.org/10.1002/aepp.13175" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/aepp.v43.2.cover.gif" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+          <a href="http://doi.org/10.1002/aepp.13175" target="_blank" class="presentation">
+          Predicting poverty and malnutrition for targeting, mapping, monitoring, and early warning
+        </a>
+        <br>
+        <p class="titles">Linden McBride, Christopher B. Barrett, Christopher Browne, Leiqiu Hu, Yanyan Liu, David S. Matteson, Ying Sun, and Jiaming Wen</p>
+        <br>
+        <p class="college">Applied Economic Perspectives and Policy</p>
+        <br>
+        <p class="date">July 2021</p>
+        <br>
+        <br>
+        <br>
+       
+      </div>
+
+
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/aepp.13221" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/aepp.v43.2.cover.gif" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+          <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/aepp.13221" target="_blank" class="presentation">
+            Predicting poverty with vegetation index
+        </a>
+        <br>
+        <p class="titles">Binh Tang, Yanyan Liu, David S. Matteson</p>
+        <br>
+        <p class="college">Applied Economic Perspectives and Policy</p>
+        <br>
+        <p class="date">December 2021, forthcoming</p>
+        <br>
+        <br>
+        <br>
+
+      </div>
+
+    </div>
+
+    <div class = "row">
+
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-3">
+        <a href="../presentations/Browne et al. Manuscript.pdf" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/doc.png" width=100px/>
+          <!-- https://group.thinkproject.com/en/solutions/project-collaboration/document-management/ -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-9">
+        <a  href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0255519" target="_blank" class="presentation">
+          Multivariate random forest prediction of poverty and malnutrition prevalence
+        </a>
+        <br>
+        <p class="titles">Chris Browne, David S. Matteson, Linden McBride, Leiqiu Hu, Yanyan Liu, Ying Sun, Jiaming Wen, Christopher B. Barrett</p>
+        <br>
+        <p class = "college">PLOS ONE</p>
+        <br>
+        <p class="date">June 2021, forthcoming</p>
+        <br>
+      </div>
+    </div>
+
+
+    <br>
+    <div class="headers"><h2>Presentations</h2></div>
+    <br>
+    <div class = "row">
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="../presentations/Roundtable24May2021.pptx" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/doc.png" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+          <a href="../presentations/Roundtable24May2021.pptx" target="_blank" class="presentation">
+            USAID Roundtable Presentation
+        </a>
+        <br>
+        <p class="date">24 May 2021</p>
+        <br>
+        <br>
+        <br>
+      </div>
+
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="../presentations/USAID project presentation 30 Mar 2021.pdf" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/doc.png" width=100px/>
+          <!-- https://group.thinkproject.com/en/solutions/project-collaboration/document-management/ -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+        <a href="../presentations/USAID project presentation 30 Mar 2021.pdf" target="_blank" class="presentation">
+          USAID Project Presentation
+        </a>
+        <br>
+        <p class="date">30 March 2020</p>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <div class = "row">
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="https://docs.google.com/presentation/d/11eLQJ3rnEXDxGBVQSFqQrs3MsMYFBBrcD9RS3uhyzZI/edit?usp=sharing" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/doc.png" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+          <a href="https://docs.google.com/presentation/d/11eLQJ3rnEXDxGBVQSFqQrs3MsMYFBBrcD9RS3uhyzZI/edit?usp=sharing" target="_blank" class="presentation">
+            Forecasting poverty and malnutrition for early warning, targeting, monitoring, and evaluation
+        </a>
+        <br>
+        <p class="date">4 January 2021</p>
+        <br>
+      </div>
+
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="../presentations/IFPRI webinar 8May2020 Barrett.pptx" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/doc.png" width=100px/>
+          <!-- https://group.thinkproject.com/en/solutions/project-collaboration/document-management/ -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+        <a href="../presentations/IFPRI webinar 8May2020 Barrett.pptx" target="_blank" class="presentation">
+          Can Publicly Available Data and Machine Learning Accurately Predict Malnutrition and Poverty?
+        </a>
+        <br>
+        <p class="date">8 May 2020</p>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <div class = "row">
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="https://www.foodsecurityportal.org/node/1764" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/fsp.png" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+          <a href="https://www.foodsecurityportal.org/node/1764" target="_blank" class="presentation">
+            Webinar 1: Better Measures of Land Surface Temperatures and Solar-Induced Chlorophyll Fluorescence (SIF) to Improve Monitoring for Drought-Stressed Crops and Crop Productivity
+        </a>
+        <br>
+        <p><a href = "../presentations/webinar1_welcome.png">Webinar Announcement</a></p>
+        <br>
+        <p><a href = "../presentations/IFPRI Webninar 07202021.pptx">Presentation Slides</a></p>
+        <br>
+        <p><a href = "https://www.youtube.com/watch?v=co2EYN57wOQ">Watch the Webinar</a></p>
+        <br>
+        <p class="date">Tuesday July 20, 10:00-11:30 AM</p>
+        <br>
+      </div>
+
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="https://www.foodsecurityportal.org/node/1765" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/fsp.png" width=100px/>
+          <!-- https://group.thinkproject.com/en/solutions/project-collaboration/document-management/ -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+        <a href="https://www.foodsecurityportal.org/node/1765" target="_blank" class="presentation">
+          Webinar 2: Using Big Data and Machine Learning to Predict Poverty and Malnutrition for Targeting, Mapping, Monitoring, and Early Warning
+        </a>
+        <br>
+        <p><a href = "../presentations/webinar2_welcome.png">Webinar Announcement</a></p>
+        <br>
+        <p><a href = "../presentations/IFPRI Webinar 2 July 28 2021.pdf">Presentation Slides</a></p>
+        <br>
+        <p><a href = "https://www.youtube.com/watch?v=wNN5HsQapas&t=1s">Watch the Webinar</a></p>
+        <br>
+        <p class="date">Tuesday July 28, 8:00-9:30 AM</p>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <div class="headers"><h2>Project Reports</h2></div>
+
+    <br>
+    <div class = "row">
+      <br>
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        <a href="../presentations/Annual progress report Oct 2020 final filed.pdf" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/feed_the_future.png" width=100px/>
+          <!-- https://group.thinkproject.com/en/solutions/project-collaboration/document-management/ -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-4">
+          <a href="../presentations/Annual progress report Oct 2020 final filed.pdf" target="_blank" class="presentation">
+          Innovations in Feed the Future Monitoring and Evaluation: Harnessing Big Data and Machine Learning to Feed the Future: Annual Performance Report
+        </a>
+        <br>
+        <p class="date">October 2020</p>
+        <br>
+      </div>
+
+
+      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        <a href="https://dec.usaid.gov/dec/home/Default.aspx" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/usaid_horizontal.png" width=100px/>
+          <!-- https://aidscape.usaid.gov/ -->
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-8 col-md-4 col-lg-4">
+          <a href="https://dec.usaid.gov/dec/home/Default.aspx" target="_blank" class="presentation">
+          Development Experience Clearinghouse
+        </a>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <div class="headers"><h2>Data Sources</h2></div>
+    <br>
+    <br>
+
+    <div class = "row">
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="https://drive.google.com/drive/u/1/folders/1AbS0GiTO93NbF1AtW_yV_PtyDzUHX0EM" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/data.png" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+        <a href="https://drive.google.com/drive/folders/1AbS0GiTO93NbF1AtW_yV_PtyDzUHX0EM?usp=sharing" target="_blank" class="presentation">
+          Monthly LST Products over the Feed-the-Future Countries
+        </a>
+        <br>
+        <p class="college">We focus on data from eleven USAID Feed the Future (FTF) priority countries: Bangladesh, Ethiopia, Ghana, Guatemala, Honduras, Kenya, Mali, Nepal, Nigeria,
+          Senegal, and Uganda.</p>
+        <br>
+        <br>
+
+      </div>
+
+      <br>
+
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <br>
+        <a href="https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1696" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/sif_oco2.png" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+        <a href="https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1696" target="_blank" class="presentation">
+          High Resolution Global Contiguous SIF Estimates Derived from OCO-2 SIF and MODIS</a>
+      <br>
+      <!--<br>
+      <p class="titles">Yu, L., J. Wen, C.Y. Chang, C. Frankenberg, and Y. Sun</p>
+      <br>
+      <p class="date">2019</p>-->
+      </div>
+    </div>
+
+
+    <br>
+    <div class = "row">
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="https://cornell.box.com/s/gkp4moy4grvqsus1q5oz7u5lc30i7o41" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/SCIAMACHY_SIF.png" width=100px/>
+        </a>
+      </div>
+
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+          <a href="https://cornell.box.com/s/gkp4moy4grvqsus1q5oz7u5lc30i7o41" target="_blank" class="presentation">
+            Harmonized SIF from GOME-2 and SCIAMACHY
+        </a>
+        <br>
+        <p class = "college">This dataset was created by fusing SIF retrievals from SCanning Imaging Absorption spectroMeter for Atmospheric CHartographY (SCIAMACHY) and Global Ozone Monitoring Experiment 2 (GOME-2) onboard MetOp-A developed at German Research Center for Geosciences (GFZ)</p>
+      </div>
+
+      <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <a href="../files/research/Source_table.xlsx" target="_blank" class="presentation">
+          <img class = "rad border_img" src = "../images/logos/data.png" width=100px/>
+        </a>
+      </div>
+      <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+          <a href="../files/research/Source_table.xlsx" target="_blank" class="presentation">
+            Data Source Table
+        </a>
+      </div>
+    </div>
+
+    <div class = "row">
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+      <a href="../files/research/data.csv" target="_blank" class="presentation">
+        <img class = "rad border_img" src = "../images/logos/data.png" width=100px/>
+      </a>
+    </div>
+    <div class="description  col-xs-6 col-sm-3 col-md-4 col-lg-4">
+        <a href="../files/research/data.csv" target="_blank" class="presentation">
+          Poverty and Malnutrition Prevalence Rates
+      </a>
+      <br>
+      <p class = "college">This dataset was created to provide researchers with a free and open source dataset for the estimation and prediction of poverty and malnutrition prevalence in developing nations.</p>
+      <br><p class = "college">Each datum in this dataset contains 5 outcomes (stunted, wasted, healthy, poorest, underweight_bmi) which measure poverty/malnutrition prevalence rates estimated via DHS surveys at a particular point in space and time. Estimation is done at the enumeration area level (roughly a village). Alongside these outcomes are many features which may be explanatory of these outcomes, sampled as close as possible to the enumeration area in space and time as possible, unless otherwise indicated (see paper). Data was extensively preprocessed, and used in our associated paper. </p>
+      <br><p class = "college">Chris Browne, David S. Matteson, Linden McBride, Leiqiu Hu, Yanyan Liu,Ying Sun, Jiaming Wen, Christopher B. Barrett <a  href="../files/papers/Browne et al. Manuscript.pdf">"Multivariate random forest prediction of poverty and malnutrition prevalence,"</a> PLOS ONE, Forthcoming. </p>
+
+    </div>
+  </div>
+
+
+
+    <br>
+    <div class="headers"><h2>Code</h2></div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <a href="http://barrett.dyson.cornell.edu/research/code.html" target="_blank" class="presentation">
+        <img class = "rad border_img" src = "../images/logos/code.png" width=100px/>
+      </a>
+    </div>
+
+    <div class="description  col-xs-6 col-sm-6 col-md-6">
+      <a href="http://barrett.dyson.cornell.edu/research/code.html" target="_blank" class="presentation">
+        Translational User Guide</a>
+        <br>
+      <p>A guide to the Python code written by Chris Browne from Chris Browne, David S. Matteson, Linden McBride, Leiqiu Hu, Yanyan Liu,Ying Sun, Jiaming Wen, Christopher B. Barrett <a  href="../files/papers/Browne et al. Manuscript.pdf">"Multivariate random forest prediction of poverty and malnutrition prevalence"</a>," PLOS ONE, Forthcoming. and annotated code written by Medha Bulumulla.</p>
+    <br>
+    <br>
+    <br>
+    </div>
+    <br>
+    <br>
+
+    <!--<br>
+    <div class="headers"><h2>Associated Materials</h2></div>
+    <br>-->
+
+    <script>writefooter();</script>
+  </div><!--/.container-->
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/offcanvas.js"></script>
+
+</body>
+</html>

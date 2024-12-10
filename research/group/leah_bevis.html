@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta name="description" content="">
+                        <meta name="author" content="">
+                            <!-- NEED REPLACE <link rel="shortcut icon" href="favicon.png"> -->
+                            
+                            <title>Leah Bevis - Research Group - Christopher B. Barrett</title>
+                            
+                            <!-- Bootstrap core CSS -->
+                            <link href="../../css/bootstrap.css" rel="stylesheet">
+                                
+                                <!-- Custom styles -->
+                                <link href="../../css/barrett-style.css" rel="stylesheet">
+                                    <script type="text/javascript" src="../../js/navbar.js"></script>
+                                    
+    </head>
+    
+    
+    <body style="">
+        
+        <script type="text/javascript">writenav();</script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h1>Leah Bevis</h1>
+                <table class="table table-hover">
+                    <tr>
+                        <td>Degree</td>
+                        <td>Ph.D, Applied Economics and Management</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address</td>
+                        <td><a href="mailto:leb99@cornell.edu">leb99@cornell.edu</a></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Website</td>
+                        <td><a href="https://www.leahbevis.com">www.leahbevis.com</a></td>
+                    </tr>
+                </table>
+                <p>Leah Bevis is interested in linked dynamics between human welfare and biophysical systems, a subject at the nexus of development, health, and resource/sustainability economics. Her job market paper examines how bio-physical constraints and smallholder supply choices relate to the nutrient content of crops found in rural Ugandan markets. Leah is also examining state-conditioned soil investment patterns within smallholder agriculture in Uganda, how agriculture and marketing decisions shape early childhood zinc intake, and how soils play into the inverse size productivity relationship in Uganda. She is also interested in the intergenerational transmission of human capital and income.</p>
+                <p>Leah is a sixth year PhD candidate in the Dyson School of Applied Economics and Management, and a fellow of the Food Systems and Poverty Reduction IGERT program at Cornell University. She did her undergraduate degree at Middlebury College in Vermont where she majored in geography and minored in economics.</p>
+                <p>Leah has been in and out of East Africa for about 10 years now, including a year spent in eastern Uganda running village-level health programs for a nonprofit organization called Uganda Village Project. In her spare time Leah enjoys running, yoga, and talking politics with friends. She also works in the local community garden, attempting to merge her academic knowledge of farming with the realities of her garden plot.
+                <p>Leah is currently on the market, Fall 2015.</p>
+
+                <!-- Code to display the articles -->
+                <script type="text/javascript" src="http://barrett.dyson.cornell.edu/js/papers.js"></script>
+                <script type="text/javascript">
+                    // Important variables
+                    // Where is the XML?
+                    var pathXML = "/xml/papers_student.xml";
+                    // For files, where are we going to look?
+                    var fileDirectory = "/files/papers/";
+                    
+                    papers = getPapers(pathXML);
+                    selectIndices = getPaperIndicesByAuthor(papers, "Leah E.M. Bevis");
+                    publishedIndices = getPaperIndicesByStatus(papers, "published");
+                    forthcomingIndices = getPaperIndicesByStatus(papers, "working");
+                </script>
+
+                <h2>Published Papers</h2>
+                <ul>
+                    <script type="text/javascript">
+                        writePapers(papers, fileDirectory, arrayIntersection(selectIndices, publishedIndices));
+                    </script>
+                </ul>
+
+                <h2>Working Papers</h2>
+                <ul>
+                    <script type="text/javascript">
+                        writePapers(papers, fileDirectory, arrayIntersection(selectIndices, forthcomingIndices));
+                    </script>
+                </ul>
+
+                <br>
+                <p><a class="btn btn-default" href="../../research/group/">Return to Group »</a></p>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <h2></h2>
+                <img src="../../images/group/leah-bevis.jpg" class="img-responsive img-rounded" alt="Leah Bevis">
+            </div>
+            
+        </div>
+
+        
+
+      <hr>
+      <script type="text/javascript">writefooter();</script>
+
+    </div><!--/.container-->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/offcanvas.js"></script>
+  
+
+</body></html>

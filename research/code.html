@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- NEED REPLACE <link rel="shortcut icon" href="favicon.png"> -->
+    <title>User Guide</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="../css/barrett-style.css" rel="stylesheet">
+    <link href="../css/medha.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/navbar.js"></script>
+</head>
+
+<body style="background-color:rgb(240, 240,240);">
+<script type="text/javascript">writenav();</script>
+<div class="container">
+<br>
+<h1>Translational User Guide</h1>
+<p>This page provides the code and annotated code to explain the Python routines used to generate variables and to execute the predictions in <a  href="../files/papers/Browne et al. Manuscript.pdf"> Multivariate random forest prediction of poverty and malnutrition prevalence</a>(2021). Here you can learn how to recreate the code for your needs. </p>
+<p>The annotated guides can not compile. They contain explanations that are not commented. If you want the code to compile, please download the desired Stata, R, or Python files.</p>
+
+<!-- <br>
+<div class="headers"><h2>Dataset Creation</h2></div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<br>
+<p>Code written by <a class="none" href = "http://lindenmcbride.com/index.html"> Linden McBride</a>.</p>
+</div>
+
+<h3>Extracting ARENA Data using Stata</h3>
+
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/DHS_ARENA_extracts.docx" target="_blank" class="presentation">Annotated Guide</a></p>
+  <p>Uncompilable Word Document </p>
+  <br>
+</div>
+
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/DHS_ARENA_extracts.do" target="_blank" class="presentation">Stata File</a></p>
+  <p>Complilable File</p>
+  <br>
+</div>
+<br>
+<br>
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+<pre class = "codeblock">
+
+</pre>
+</div>
+<br>
+
+
+<h3>Constructing Women's BMI Variable from DHS Data using Stata</h3>
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/DHS_womenBMI_only.docx" target="_blank" class="presentation">Annotated Guide</a></p>
+  <p>Uncompilable Word Document </p>
+  <br>
+</div>
+
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/DHS_womenBMI_only.do" target="_blank" class="presentation">Stata File</a></p>
+  <p>Complilable File</p>
+  <br>
+</div>
+<br>
+<br>
+<br>
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+<pre class = "codeblock">
+
+</pre>
+</div>
+
+<br>
+<h3>Constructing Women's BMI Using R </h3>
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+  <p><a href="../files/code/DHSdata.R" target="_blank" class="presentation">R File</a></p>
+  <p>Complilable File</p>
+  <br>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+<pre class = "codeblock">
+  #Bangladesh
+  <span class = "comment">First, clear the Global Environment. </span>
+  rm(list = ls())
+  <span class = "comment">Then, set the dsn argument for where the shapefile is</span>
+  dsnB4="Bangladesh_04/BDGE4JFL"
+  <span class = "comment">Next, read the file using the dsn argument and specifies where to find it</span>
+  B4=readOGR(dsnB4,layer="BDGE4JFL")
+  <span class = "comment">Creates a data frame</span>
+  B4.df=as(B4,"data.frame")
+  <span class = "comment">Finally, create a csv file using the data frame in the first argument and it has a title according to the country/work/location of the country in data.csv </span>
+  write_csv(B4.df,"Bangladesh_04/work/b4coords.csv")
+
+  <span class = "comment">Repeat these steps for each country</span>
+</pre>
+</div>
+-->
+
+<br>
+<div class="headers"><h2>Correlated Random Forest Sequential Nowcasting and Contemporaneous Prediction using Python</h2></div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+  <br>
+<p class = "author">Code written by <a href = "https://www.cam.cornell.edu/research/grad-students/chris-browne"target="_blank" class="author">Chris Browne</a>.</p>
+</div>
+<h3>Contemporaneous Forecasting </h3>
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/traintestc.docx" target="_blank" class="presentation">Annotated Guide</a></p>
+  <p>Uncompilable Word Document </p>
+  <br>
+</div>
+
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/traintestc.py" target="_blank" class="presentation">Python File</a></p>
+  <p>Complilable File</p>
+  <br>
+</div>
+<br>
+<br>
+<!-- <span class = "comment"> </span> -->
+<div class="col-xs-12 col-sm-12 col-md-12">
+<pre class = "scrollcodeblock">
+  import numpy as np
+  import pandas as pd
+  import pickle
+  import pdb
+  from sklearn.ensemble import RandomForestRegressor as RF
+  from sklearn.metrics import r2_score as r2
+  from sklearn.metrics import mean_squared_error as mse
+  from sklearn.model_selection import train_test_split
+  from sklearn.linear_model import Ridge as ridge
+  ##set seed
+  np.random.seed(6023)
+
+  <span class = "comment">Setting the Forest Size</span>
+  nt = 2000
+
+  <span class = "comment">Five Fold Cross Validation Testing and Training are performed 5 times for each survey</span>
+  folds = 5
+
+  <span class = "comment">Creating a vector that has different random forest methods: independent(ind) or joint</span>
+  rftypes = ['ind','joint'] ##ind must be first
+
+  <span class = "comment">Setting the countries, these might be different for you.</span>
+  countries = ["Bangladesh","Ethiopia","Ghana","Guatemala","Honduras","Mali","Nepal","Kenya","Senegal","Uganda","Nigeria"]
+
+  <span class = "comment">Setting the years, these might be different for you.</span>
+  pyears = [["04","07","11","14"],["05","11","16"],["08","14"],["14"],["11"],["06","12"],["06","11","16"],['08','14'],["05",'10'],["06",'11','16'],["08","13"]]
+
+  <span class = "comment">Setting the different possible outcomes, these might be different for you.</span>
+  outcomes = ['stunted', 'wasted',  'healthy', 'poorest','underweight_bmi']
+
+  <span class = "comment">For loop to sort the years into a list.</span>
+  syears = np.sort(list(set([y for years in pyears for y in years])))
+
+  <span class = "comment">Create a pandas dataframe using the data that was cleaned earlier.</span>
+  xa = pd.read_csv('data/data.csv')
+  imps = [[] for country in countries]
+
+  ##for each survey year, for each country
+  for i,year in enumerate(syears):
+      for j,country in enumerate(countries):
+  	 <span class = "comment">prints the index of the current syears and index of current countries</span>
+          print(i,j)
+          ##filter data
+          x = xa[xa.country == country]
+          x = x.drop('country',axis=1)
+  	  <span class = "comment">Set the year for x. We do 20 + year because year only contains the last 2 digits of the year.</span>
+          x = x[x.year <= int('20' + year)]
+    <span class = "comment">if statement states if x is larger than 0, it hasn't finished looking at all the countries yet</span>
+          if np.shape(x)[0]>0:
+
+  <span class = "comment">The below code chunk takes out data where more than 20% of the data is missing. Here it is just taking out the market price data. You may need to shift this number according to your dataset.</span>
+              ##drop largely missing features
+        mask = np.array(x.isnull().sum()/len(x)) The average when x is null into mask.
+              x = x.loc[:,mask<.2] Locates the index of x.
+
+   		<span class = "comment">Drops NA rows.</span>
+              ##drop rows with missing data
+              x = x.dropna(axis=0)
+
+              ##test train split and CV
+  	      <span class = "comment">Set the x training data when the year is greater than the x year.</span>
+              xtr = x[x.year < int('20' + year)]
+  	<span class = "comment">Set the x year when it’s equal to year.</span>
+              x = x[x.year == int('20' + year)]
+  		<span class = "comment">Keep doing this when there’s still information in x(x is greater than 0)</span>
+              if np.shape(x)[0]>0:
+   		<span class = "comment">Set q as the vector of x[0] from the first element to the second to last.</span>
+                  q = np.arange(np.shape(x)[0])
+   	<span class = "comment">Cross Validation</span>
+                  for fold in range(folds):
+  			<span class = "comment">Shuffle the countries randomly</span>
+                      np.random.shuffle(q)
+                      trinds = q[:int(.8*len(q))]
+                      teinds = q[int(.8*len(q)):]
+                      xtrf = pd.concat([xtr,x.iloc[trinds,:]],ignore_index=True)
+                      xtef = x.iloc[teinds,:]
+
+                      ##make random forests
+                      <span class = "comment">Labs is created because xtr contains the predictions at the end of the list, but when recreating this, we suggest keeping the predictions in a separate variable to minimize confusion. Additionally, the country is in the 0th column and we need to omit this when making the predictions, hence why labs starts at the 1st column.</span>
+                      labs = list(xtrf.columns)[1:-5]
+                      for rftype in rftypes:
+                          <span class = "comment">Joint Random Forest</span>
+                          if rftype =='joint':
+                              <span class = "comment">Load the data into a numpy data frame called W</span>
+                              W = np.load('data/W/W'+year+country+'c.npy')
+                              <span class = "comment">Create a variable ytrf with the y training data by taking the dot product of W and the transpose of xtr[outcomes] and the transpose of that</span>
+                              ytrf = np.dot(W,xtrf[outcomes].T).T
+                              <span class = "comment">Create a variable yte with the y testing data by taking the dot product of W and the transpose of xte[outcomes] and the transpose of that</span>
+                              ytef = np.dot(W,xtef[outcomes].T).T
+                              <span class = "comment">Create the Random Forests.</span>
+                              rf = RF(nt,max_depth=4,max_features = .333)
+                              rf = rf.fit(xtrf[labs],ytrf)
+                              <span class = "comment">Set predtr(prediction training) as the prediction of xtrf[labs](x testing random forest) from the given decision trees.</span>
+                              predtr =  rf.predict(xtrf[labs])
+                              <span class = "comment">Set predte(prediction testing) as the prediction of xtef[labs](x training random forest) from the given decision trees.</span>
+                              predte = rf.predict(xtef[labs])
+
+                              <span class = "comment">Sklearn does not support using the Random forest method on dependent data. Below, a whitening technique is used to make the data independent by orthogonalizing the data so the random forest technique can be used.</span>
+
+                              <span class = "comment">Set Winv as the inverse of W.</span>
+                              Winv = np.linalg.inv(W)
+                              <span class = "comment">Set predtr as the transpose of the dot product of Winv and predtr.T(transpose of predtr)</span>
+                              predtr = np.dot(Winv,predtr.T).T
+                              <span class = "comment">Set predte as the transpose of the dot product of Winv and predte.T(transpose of predte)</span>
+                              predte = np.dot(Winv,predte.T).T
+                              <span class = "comment">Append the important features from the decision trees to imps[j]. This variable is used to produce some figures but not used to make predictions.</span>
+                              imps[j].append(rf.feature_importances_)
+
+                              <span class = "comment">For loop of the outcomes to set each respective outcome.</span>
+                              for k,outcome in enumerate(outcomes):
+                              <span class = "comment">This code stores the outcomes in xtrf,/xtef when replicating it is best to create a new variable for outcomes to minimize confusion.</span>
+
+                                  <span class = "comment">Set the outcome + 'rf'+ joint = the predicted outcome found above in xtrf.</span>
+                                  xtrf[outcome+'rf' + rftype] = predtr[:,k]
+                                  <span class = "comment">Set the outcome +'rf' + joint = the predicted outcome found above in xtef.</span>
+                                  xtef[outcome+'rf'+ rftype] = predte[:,k]
+
+                          <span class = "comment">Independent Random Forests</span>
+                          else:
+                              <span class = "comment">Set ytrf as the training data with the specified outcomes from the top.</span>
+                              ytrf = xtrf[outcomes]
+                              <span class = "comment">Set ytef as the testing data with the specified outcomes from the top.</span>
+                              ytef = xtef[outcomes]
+
+                              <span class = "comment">For loop through the outcomes to set each respective outcome.</span>
+                              for outcome in outcomes:
+                                  rf = RF(nt,max_depth=4,max_features = .333)
+                                  rf = rf.fit(xtrf[labs],ytrf[outcome])
+                                  <span class = "comment">This code stores the outcomes in xtrf,/xtef when replicating it is best to create a new variable for outcomes to minimize confusion.</span>
+
+                                  <span class = "comment">Set the x training data with the outcomes from the prediction from the random forests.</span>
+                                  xtrf[outcome+'rf' + rftype] = rf.predict(xtrf[labs])
+                                  <span class = "comment">Set the x testing data with the outcomes from the prediction from the random forests.</span>
+                                  xtef[outcome+'rf' + rftype] = rf.predict(xtef[labs])
+
+                              <span class = "comment">Set W as the correlation of each pair of residuals from the training data’s transposed outcomes, then takes the singular value decomposition and multiply the observation of that matrix which will orthogonalize them and make them independent.</span>
+                              W = np.linalg.svd(np.corrcoef((np.array(xtrf[outcomes])-np.array(xtrf[[outcome + 'rfind' for outcome in outcomes]])).T))[2]
+                              <span class = "comment">Save the data file using W set above as a Numpy object.</span>
+                              np.save('data/W/W'+year+country+'c',W)
+
+                      <span class = "comment">Set xtrf(x training) with the outcomes of independent and joint random forest of the training data. The results are kept in xtef, but you can change this variable so that the results are in a separate variable to minimize confusion.</span>
+                      xtrf = xtrf[outcomes + [outcome + 'rfind' for outcome in outcomes] + [outcome + 'rfjoint' for outcome in outcomes]]
+                      <span class = "comment">Set xtef(x testing) with the outcomes of independent and joint random forest of the testing data. The results are kept in xtef, but you can change this variable so that the results are in a separate variable to minimize confusion. </span>
+                      xtef = xtef[outcomes + [outcome + 'rfind' for outcome in outcomes] + [outcome + 'rfjoint' for outcome in outcomes]]
+
+  <span class = "comment">Open the file with the specified year and convert training and testing results and the file as a byte stream.</span>
+                      with open('results/'+year+country+'resultscrf' +str(fold) +'.pkl','wb') as f:
+                          pickle.dump([xtrf,xtef],f)
+</pre>
+</div>
+<br>
+
+
+<h3>Sequential Nowcasting</h3>
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/traintestseq.docx" target="_blank" class="presentation">Annotated Guide</a></p>
+  <p>Uncompilable Word Document </p>
+  <br>
+</div>
+
+<div class="col-xs-6 col-sm-6 col-md-6">
+  <p><a href="../files/code/traintestseq.py" target="_blank" class="presentation">Python File</a></p>
+  <p>Complilable File</p>
+  <br>
+</div>
+<br>
+<br>
+
+<!-- <span class = "comment"> </span> -->
+<div class="col-xs-12 col-sm-12 col-md-12">
+<pre class = "scrollcodeblock">
+  <span class = "comment">Sequential Now-casting: To be used in Early Warning Systems.</span>
+
+  import numpy as np
+  import pandas as pd
+  import pickle
+  import pdb
+  from sklearn.ensemble import RandomForestRegressor as RF
+  from sklearn.metrics import r2_score as r2
+  from sklearn.metrics import mean_squared_error as mse
+  from sklearn.model_selection import train_test_split
+  from sklearn.linear_model import Ridge as ridge
+  <span class = "comment">Setting the seed ensures that the results will be the same when reproduced.</span>
+  ##set seed
+  np.random.seed(9823)
+
+  <span class = "comment">Setting the Forest Size to 2000</span>
+  nt = 2000
+
+  <span class = "comment">Creating a vector that has different random forest methods: independent(ind) or joint</span>
+  rftypes = ['ind','joint'] ##ind must be first
+
+  Setting the countries, these might be different for you.</span>
+  countries = ["Bangladesh","Ethiopia","Ghana","Kenya","Mali","Nepal","Nigeria","Senegal","Uganda"]
+
+  <span class = "comment">Setting the years, these might be different for you.</span>
+  pyears = [["04","07","11","14"],["05","11","16"],["08","14"],['08','14'],["06","12"],["06","11","16"],["08","13"],["05",'10'],["06",'11','16']]
+
+  <span class = "comment">Setting the different possible outcomes, these might be different for you.</span>
+  outcomes = ['stunted', 'wasted',  'healthy', 'poorest','underweight_bmi']
+
+  <span class = "comment">For loop to sort the years into a list. </span>
+  syears = np.sort(list(set([y for years in pyears for y in years])))
+
+  <span class = "comment">Create a pandas dataframe using the data that was cleaned by Linden McBride. </span>
+  xa = pd.read_csv('data/data.csv')
+  <span class = "comment">Imps is used to produce some figures in the paper and is not needed for predictions.</span>
+  imps = [[] for country in countries]
+
+  ##for each survey year, for each country
+  for i,year in enumerate(syears):
+      for j,country in enumerate(countries):
+   	<span class = "comment">Prints the index of the current syears and prints index of the current countries.</span>
+          print(i,j)
+          ##filter data
+  	  <span class = "comment">Only keep countries that we’re looking at, these might be different for you.</span>
+          x = xa[xa.country == country]
+          x = x.drop('country',axis=1)
+   	   <span class = "comment">Set the year for x. We do 20 + year because year only contains the last 2 digits of the year.</span>
+          x = x[x.year <= int('20' + year)]
+
+          <span class = "comment">Split the data into Training(xtr) and Testing(xte) data</span>
+          ##test train split
+          <span class = "comment">Training data is when the data’s year is less than the specified year.</span>
+          xtr = x[x.year < int('20' + year)]
+
+          ##sequential
+  	<span class = "comment">Testing Data is the data with the specified year.</span>
+          xte = x[x.year == int('20' + year)]
+
+          <span class = "comment">This specific data handling is dependent on the dataset used.</span>
+          ##handles senegal 12
+          if (np.shape(xtr)[0]*np.shape(xte)[0]>0)*(not country == 'Senegal' or not year == '12'):
+   <span class = "comment">The below code chunk takes out data where more than 20% of the data is missing. Here it is just taking out the market price data. You may need to shift this number according to your dataset.</span>
+              ##drop largely missing features
+              xf = pd.concat([xtr,xte],ignore_index=True)
+              mask = np.array(xf.isnull().sum()/len(x))
+              xtr = xtr.loc[:,mask<.2]
+              xte = xte.loc[:,mask<.2]
+
+  		<span class = "comment">Split the data into Training and Testing Data</span>
+              ##drop rows with missing data
+    	<span class = "comment">Drop x training data that are NA</span>
+              xtr = xtr.dropna(axis=0)
+   	 	 <span class = "comment">Drop x testing data that are NA</span>
+              xte = xte.dropna(axis=0)
+
+              ##make random forests
+              g=dict({'max_depth':4,'max_features':.333,'bootstrap':True})
+
+   	<span class = "comment">Labs is created because xtr contains the predictions at the end of the list, but when recreating this, we suggest keeping the predictions in a separate variable to minimize confusion. Additionally, the country is in the 0th column and we need to omit this when making the predictions, hence why labs starts at the 1st column.</span>
+              labs = list(xtr.columns)[1:-5]
+
+   	 <span class = "comment">Joint Random Forest</span>
+              for rftype in rftypes:
+                  if rftype =='joint':
+
+   		   	<span class = "comment">Load the data into a numpy data frame called W</span>
+                      W = np.load('data/W/W'+year+country+'seq.npy')
+
+   			   <span class = "comment">Create a variable ytr with the y training data by taking the dot product of W and the transpose of xtr[outcomes] and the transpose of that</span>
+                      ytr = np.dot(W,xtr[outcomes].T).T
+
+   			   <span class = "comment">Create a variable yte with the y testing data by taking the dot product of W and the transpose of xte[outcomes] and the transpose of that</span>
+                      yte = np.dot(W,xte[outcomes].T).T
+
+   			   <span class = "comment">Create the random Forests</span>
+                      rf = RF(nt,max_depth=4,max_features = .333)
+                      rf = rf.fit(xtr[labs],ytr)
+
+   			   <span class = "comment">Set predtr(prediction training) as the prediction of xtr[labs](x testing random forest) from the given decision trees.</span>
+                      predtr =  rf.predict(xtr[labs])
+
+   			<span class = "comment">Set predte(prediction testing) as the prediction of xte[labs](x training random forest) from the given decision trees.</span>
+                      predte = rf.predict(xte[labs])
+
+  <span class = "comment">Sklearn does not support using the Random forest method on dependent data. Below, a whitening technique is used to make the data independent by orthogonalizing the data so the random forest technique can be used.</span>
+
+              <span class = "comment">Set Winv as the inverse of W</span>
+                      Winv = np.linalg.inv(W)
+
+              <span class = "comment">Set predtr as the transpose of the dot product of Winv and predtr.T(transpose of predtr)</span>
+                      predtr = np.dot(Winv,predtr.T).T
+
+              <span class = "comment">Set predte as the transpose of the dot product of Winv and predte.T(transpose of predte)</span>
+                      predte = np.dot(Winv,predte.T).T
+
+              <span class = "comment">Append the important features from the decision trees to imps[j]. This variable is used to produce some figures but not used to make predictions.</span>
+                      imps[j].append(rf.feature_importances_)
+
+   			      <span class = "comment">For loop of the outcomes</span>
+                      for k,outcome in enumerate(outcomes):
+
+   			           <span class = "comment">Set the outcome + 'rf'+ joint = the predicted outcome found above in xtr</span>
+                          xtr[outcome+'rf' + rftype] = predtr[:,k]
+
+   			     <span class = "comment">Set the outcome +'rf' + joint = the predicted outcome found above in xte</span>
+                          xte[outcome+'rf' + rftype] = predte[:,k]
+
+         <span class = "comment">Independent Random Forests</span>
+                  else:
+
+   			<span class = "comment">Set ytr as the training data with the specified outcomes from the top</span>
+   			 ytr = xtr[outcomes]
+   			<span class = "comment">Set yte as the testing data with the specified outcomes from the top</span>
+                      yte = xte[outcomes]
+
+   			<span class = "comment">For loop through the outcomes.</span>
+                      for outcome in outcomes:
+
+                          rf = RF(nt,max_depth=4,max_features = .333)
+                          rf = rf.fit(xtr[labs],ytr[outcome])
+
+   				<span class = "comment">Set the x training data to the prediction from the random forests</span>
+                          xtr[outcome+'rf' + rftype] = rf.predict(xtr[labs])
+
+   				<span class = "comment">Set the x testing data to the prediction from the random forests</span>
+                          xte[outcome+'rf' + rftype] = rf.predict(xte[labs])
+
+   			<span class = "comment">Set W as the correlation of each pair of residuals from the training data’s transposed outcomes, then takes the singular value decomposition and multiply the observation of that matrix which will orthogonalize them and make them independent.</span>
+                      W = np.linalg.svd(np.corrcoef((np.array(xtr[outcomes])-np.array(xtr[[outcome + 'rfind' for outcome in outcomes]])).T))[2]
+
+   			<span class = "comment">Save the data file using W set above as a Numpy object.</span>
+                      np.save('data/W/W'+year+country+'seq',W)
+
+   		<span class = "comment">Set xtr(x training) with the outcomes of independent and joint random forest of the training data. The results are kept in xte, but you can change this variable so that the results are in a separate variable to minimize confusion.</span>
+              xtr = xtr[outcomes + [outcome + 'rfind' for outcome in outcomes] + [outcome + 'rfjoint' for outcome in outcomes]]
+
+   		<span class = "comment">Set xte(x testing) with the outcomes of independent and joint random forest of the testing data. The results are kept in xte, but you can change this variable so that the results are in a separate variable to minimize confusion.</span>
+              xte = xte[outcomes + [outcome + 'rfind' for outcome in outcomes] + [outcome + 'rfjoint' for outcome in outcomes]]
+
+   		<span class = "comment">Open the file with the specified year and convert training, testing results, and file as a byte stream.</span>
+              with open('results/'+year+country+'resultsseqrf.pkl','wb') as f:
+                  pickle.dump([xtr,xte],f)
+</pre>
+</div>
+
+<br>
+<h3>Python Packages Documentations</h3>
+<div class="col-xs-12 col-sm-12 col-md-12">
+  <p><a href="../files/code/packages.pdf" target="_blank" class="presentation">PDF file of Package Documentation Links</a></p>
+  <ul>
+    <li><a href = "https://numpy.org/">numpy</a></li>
+    <li><a href = "https://pandas.pydata.org/">pandas</a></li>
+    <li><a href = "https://docs.python.org/3/library/pickle.html#:~:text=%E2%80%9CPickling%E2%80%9D%20is%20the%20process%20whereby,back%20into%20an%20object%20hierarchy.">pickle</a></li>
+    <li><a href = "https://docs.python.org/3/library/pdb.html">pbd</a></li>
+    <li><a href = "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html">randomForestRegressor</a> as RF from <a href = "https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble">sklearn.ensemble</a></li>
+    <li><a href = "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html">r2_score</a> as r2 from <a href = "https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">sklearn.metrics</a></li>
+    <li><a href = "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">mean_squared_error</a> as mse from <a href = "https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">sklearn.metrics</a></li>
+  </ul>
+  <br>
+  <br>
+</div>
+
+<script>writefooter();</script>
+</div><!--/.container-->
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/offcanvas.js"></script>
+
+</body>
+</html>
